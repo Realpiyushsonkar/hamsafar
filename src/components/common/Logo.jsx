@@ -1,12 +1,7 @@
 import { Link } from 'react-router-dom';
 
-/**
- * Hamsafar wordmark. The mark is a simple travel arc between two points:
- * a blue origin dot and an amber destination dot — the same visual
- * language used across trip cards (route + reward).
- */
 export default function Logo({ variant = 'dark', className = '' }) {
-  const textColor = variant === 'light' ? 'text-white' : 'text-ink-900';
+  const textColor = variant === 'light' ? 'text-white' : 'text-ink-900 dark:text-white';
   const strokeColor = variant === 'light' ? '#FFFFFF' : '#1E5FC4';
 
   return (

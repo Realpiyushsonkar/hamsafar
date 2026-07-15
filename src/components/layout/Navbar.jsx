@@ -4,6 +4,7 @@ import { FiMenu, FiX } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from '@/components/common/Logo';
 import Button from '@/components/common/Button';
+import ThemeToggle from '@/components/common/ThemeToggle';
 
 const NAV_LINKS = [
   { label: 'Find a traveller', to: '/travellers' },
@@ -26,7 +27,7 @@ export default function Navbar() {
       initial={{ y: -16, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className={`sticky top-0 z-50 bg-white/90 backdrop-blur-md transition-shadow duration-300 ${
+      className={`sticky top-0 z-50 bg-white/90 backdrop-blur-md transition-shadow duration-300 dark:bg-ink-900/90 ${
         isScrolled ? 'shadow-sm' : ''
       }`}
     >
@@ -38,7 +39,7 @@ export default function Navbar() {
             <Link
               key={link.label}
               to={link.to}
-              className="text-sm font-medium text-ink-700 transition-colors hover:text-primary-600"
+              className="text-sm font-medium text-ink-700 transition-colors hover:text-primary-600 dark:text-ink-300"
             >
               {link.label}
             </Link>
@@ -46,6 +47,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
           <Button variant="ghost" size="sm" to="/login">
             Log in
           </Button>
@@ -54,13 +56,16 @@ export default function Navbar() {
           </Button>
         </div>
 
-        <button
-          className="grid h-10 w-10 place-items-center rounded-full text-ink-700 md:hidden"
-          onClick={() => setIsMenuOpen((open) => !open)}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
-        </button>
+        <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle />
+          <button
+            className="grid h-10 w-10 place-items-center rounded-full text-ink-700 dark:text-ink-300"
+            onClick={() => setIsMenuOpen((open) => !open)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -70,14 +75,14 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="overflow-hidden border-t border-ink-100 md:hidden"
+            className="overflow-hidden border-t border-ink-100 dark:border-ink-800 md:hidden"
           >
             <div className="flex flex-col gap-4 px-6 py-5">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.label}
                   to={link.to}
-                  className="text-sm font-medium text-ink-700"
+                  className="text-sm font-medium text-ink-700 dark:text-ink-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}

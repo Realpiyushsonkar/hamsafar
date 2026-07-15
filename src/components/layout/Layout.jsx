@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 export default function Layout() {
   return (
-    <div className="flex min-h-screen flex-col bg-white text-ink-900">
+    <div className="flex min-h-screen flex-col bg-white text-ink-900 dark:bg-ink-900 dark:text-ink-50">
       <Navbar />
       <main className="flex-1">
         <Outlet />

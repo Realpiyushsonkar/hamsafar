@@ -1,12 +1,6 @@
-/**
- * Decorative divider styled like the perforation on a boarding pass.
- * This is Hamsafar's signature visual motif — it reappears on every
- * trip / ticket card throughout the app to reinforce the "real travel
- * document" feel of a posted trip.
- */
 export default function TicketDivider({ className = '', tone = 'light' }) {
-  const dot = tone === 'dark' ? 'bg-primary-900 border-white/20' : 'bg-white border-ink-200';
-  const line = tone === 'dark' ? 'border-white/20' : 'border-ink-200';
+  const dot = tone === 'dark' ? 'bg-primary-900 border-white/20' : 'bg-white border-ink-200 dark:bg-ink-800 dark:border-ink-700';
+  const line = tone === 'dark' ? 'border-white/20' : 'border-ink-200 dark:border-ink-700';
 
   return (
     <div className={`relative flex items-center ${className}`}>
